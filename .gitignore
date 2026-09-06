@@ -1,0 +1,32 @@
+# Environment and Credentials
+.env
+.env.local
+*.env
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Virtual Environments
+venv/
+env/
+.venv/
+ENV/
+
+# Home Credit Raw Datasets (Do NOT commit to git per assignment rules)
+HC_*.csv
+HomeCredit_columns_description.csv
+application_train*.csv
+*.zip
+
+# Database warehouse (can be recreated via python -m database.init_db)
+database/*.db
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

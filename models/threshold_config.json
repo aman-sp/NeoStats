@@ -1,0 +1,8 @@
+{
+  "selected_model": "LightGBM",
+  "is_scaled": false,
+  "calibration_applied": true,
+  "low_risk_threshold": 0.0275,
+  "high_risk_threshold": 0.1627,
+  "methodology": "Empirical quantile analysis on validation split: Low risk threshold guarantees historical default rate <= 3.0%; High risk threshold identifies concentration with default rate >= 15.0%."
+}
