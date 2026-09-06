@@ -6,7 +6,7 @@
 [![SQLite](https://img.shields.io/badge/Database-SQLite%20Warehouse-lightgrey.svg)](https://www.sqlite.org/)
 [![Docker](https://img.shields.io/badge/Container-Docker%20%2B%20Compose-blue.svg)](https://www.docker.com/)
 
-An end-to-end, production-grade credit risk scoring, explainability, and conversational data analytics platform built on the **Home Credit Default Risk** dataset for the **NeoStats AI Engineering Internship Round 1 Assignment**.
+An end-to-end, production-grade credit risk scoring, explainability, and conversational data analytics platform built on the **Home Credit Default Risk** dataset.
 
 ---
 
