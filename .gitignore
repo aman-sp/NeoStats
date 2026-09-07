@@ -22,8 +22,10 @@ HomeCredit_columns_description.csv
 application_train*.csv
 *.zip
 
-# Database warehouse (can be recreated via python -m database.init_db)
-database/*.db
+# Database warehouse is required for runtime validation and clean-clone execution.
+# Keep the SQLite warehouse tracked so deployment and local reproduction do not depend on a missing local artifact.
+!database/
+!database/credit_risk_warehouse.db
 
 # IDE & OS
 .vscode/

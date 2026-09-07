@@ -146,6 +146,12 @@ def load_metrics_and_thresholds():
         metrics = json.load(f)
     with open(THRESHOLD_CONFIG_PATH, 'r', encoding='utf-8') as f:
         thresholds = json.load(f)
+
+    selected_model = thresholds.get('selected_model', 'LightGBM')
+    selected_test_metrics = metrics['model_comparison'][selected_model]['test']
+    calibration_applied = thresholds.get('calibration_applied', False)
+    if calibration_applied and 'calibrated_brier_score' in selected_test_metrics:
+        metrics['model_comparison'][selected_model]['test']['brier_score'] = selected_test_metrics['calibrated_brier_score']
     return metrics, thresholds
 
 metrics_data, threshold_cfg = load_metrics_and_thresholds()

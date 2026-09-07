@@ -216,6 +216,14 @@ def train_and_evaluate_all_models(
     else:
         logger.info(f'Probability calibration did not improve Brier score (Raw: {raw_brier}, Calibrated: {calib_brier}). Using raw model output.')
 
+    # Keep the model and benchmark metadata aligned with the actual deployed probability output.
+    results[best_model_name]['test']['raw_brier_score'] = round(raw_brier, 4)
+    results[best_model_name]['test']['calibrated_brier_score'] = round(calib_brier, 4)
+    if calibration_adopted:
+        results[best_model_name]['test']['brier_score'] = round(calib_brier, 4)
+    else:
+        results[best_model_name]['test']['brier_score'] = round(raw_brier, 4)
+
     # 9. Determine Defensible Empirical Risk Thresholds on Validation Data
     threshold_info = determine_empirical_risk_thresholds(y_val, final_val_proba)
     logger.info(f'Empirical Risk Thresholds: Low Risk < {threshold_info["low_risk_threshold"]}, High Risk >= {threshold_info["high_risk_threshold"]}')

@@ -197,5 +197,18 @@ class TestCreditRiskCoreComponents(unittest.TestCase):
         self.assertEqual(res_unsupp['status'], 'UNSUPPORTED_QUERY')
         self.assertIsNone(res_unsupp['sql'])
 
+    def test_calibration_metadata_matches_deployed_model(self):
+        """Verify calibration metadata reports the calibrated Brier score used by the production model."""
+        with open('models/model_comparison_metrics.json', 'r', encoding='utf-8') as f:
+            metrics = __import__('json').load(f)
+
+        selected_model = metrics['selected_model']
+        test_metrics = metrics['model_comparison'][selected_model]['test']
+        self.assertTrue(metrics.get('calibration_applied', False))
+        self.assertIn('raw_brier_score', test_metrics)
+        self.assertIn('calibrated_brier_score', test_metrics)
+        self.assertLess(test_metrics['calibrated_brier_score'], test_metrics['raw_brier_score'])
+        self.assertAlmostEqual(test_metrics['brier_score'], test_metrics['calibrated_brier_score'], places=4)
+
 if __name__ == '__main__':
     unittest.main()

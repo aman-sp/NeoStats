@@ -47,6 +47,17 @@ class CreditRiskPredictor:
         self.high_threshold = self.config['high_risk_threshold']
         self.selected_model_name = self.config['selected_model']
         self.calibration_applied = self.config.get('calibration_applied', False)
+        self.calibrated_brier_score = None
+
+        try:
+            with open('models/model_comparison_metrics.json', 'r', encoding='utf-8') as f:
+                metrics = json.load(f)
+            selected = self.selected_model_name
+            selected_test = metrics['model_comparison'][selected]['test']
+            if self.calibration_applied and 'calibrated_brier_score' in selected_test:
+                self.calibrated_brier_score = selected_test['calibrated_brier_score']
+        except Exception:
+            self.calibrated_brier_score = None
 
     def predict_single(self, applicant_data: Dict[str, Any]) -> Dict[str, Any]:
         """
