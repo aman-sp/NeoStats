@@ -6,7 +6,9 @@
 [![SQLite](https://img.shields.io/badge/Database-SQLite%20Warehouse-lightgrey.svg)](https://www.sqlite.org/)
 [![Docker](https://img.shields.io/badge/Container-Docker%20%2B%20Compose-blue.svg)](https://www.docker.com/)
 
-An end-to-end, production-grade credit risk scoring, explainability, and conversational data analytics platform built on the **Home Credit Default Risk** dataset.
+An end-to-end credit risk scoring, explainability, and conversational analytics platform built on the **Home Credit Default Risk** dataset.
+
+> Note: the SQLite warehouse is generated locally at runtime via `python -m database.init_db` and is intentionally not stored in GitHub because of size limits.
 
 ---
 
@@ -201,12 +203,12 @@ A 6-tab dashboard:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/NeoStats-Credit-Risk.git
-cd NeoStats-Credit-Risk
+git clone https://github.com/aman-sp/NeoStats.git
+cd NeoStats
 
-# Create and activate virtual environment (Python 3.11 or 3.12 recommended)
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Create and activate virtual environment (Python 3.11+ recommended)
+python -m venv .venv
+.venv\Scripts\activate  # On macOS/Linux: source .venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
@@ -236,8 +238,8 @@ STREAMLIT_SERVER_ADDRESS=0.0.0.0
 # 1. Initialize SQLite analytical warehouse
 python -m database.init_db
 
-# 2. Run automated test suite
-python -m unittest tests/test_core_components.py
+# 2. Run automated validation
+python -m pytest -q
 
 # 3. Launch Streamlit UI
 streamlit run app/streamlit_app.py
@@ -269,11 +271,11 @@ All 5 mandatory query patterns plus hallucination control are verified:
 ---
 
 ## 23. Automated Testing
-Run the automated test suite covering prediction, SHAP, rules, SQL validation, DB execution, and NL-to-SQL:
+Run the automated regression suite covering prediction, SHAP, rules, SQL validation, database execution, and NL-to-SQL behavior:
 ```bash
-python -m unittest tests/test_core_components.py
+python -m pytest -q
 ```
-All 6 core tests run in < 1.5 seconds and pass with `OK`.
+The project currently validates 7 core checks successfully in under 7 seconds.
 
 ---
 
