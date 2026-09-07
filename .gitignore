@@ -22,10 +22,13 @@ HomeCredit_columns_description.csv
 application_train*.csv
 *.zip
 
-# Database warehouse is required for runtime validation and clean-clone execution.
-# Keep the SQLite warehouse tracked so deployment and local reproduction do not depend on a missing local artifact.
-!database/
-!database/credit_risk_warehouse.db
+# Local generated databases and warehouse artifacts
+# These are created during local runtime and should not be pushed to GitHub.
+database/*.db
+database/*.sqlite
+database/*.sqlite3
+
+database/__pycache__/
 
 # IDE & OS
 .vscode/
