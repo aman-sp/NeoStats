@@ -36,61 +36,24 @@ st.set_page_config(
 # Custom Styling
 st.markdown("""
 <style>
-    .stApp {
-        background: linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
-        color: #0f172a;
-    }
-
-    [data-testid="stAppViewContainer"] {
-        background: transparent;
-    }
-
-    [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #f1f6ff 0%, #edf3ff 100%);
-        border-right: 1px solid #dbeafe;
-    }
-
-    .stSidebar > div {
-        color: #0f172a;
-    }
-
     .main-header {
         font-size: 2.2rem;
-        line-height: 1.2;
-        font-weight: 800;
-        color: #0b1f4d;
-        letter-spacing: -0.03em;
+        font-weight: 700;
+        color: #1E3A8A;
         margin-bottom: 0.2rem;
     }
-
     .sub-header {
-        font-size: 1.08rem;
-        font-weight: 500;
-        color: #334155;
+        font-size: 1.05rem;
+        color: #4B5563;
         margin-bottom: 1.5rem;
     }
-
-    h1, h2, h3, h4, h5, h6, p, li, div {
-        color: #0f172a;
-    }
-
-    .stMetric {
-        background: rgba(255,255,255,0.72);
-        border: 1px solid #dfeafc;
-        border-radius: 14px;
-        box-shadow: 0 6px 18px rgba(37, 99, 235, 0.06);
-        padding: 0.7rem 0.9rem;
-    }
-
     .metric-card {
-        background-color: #ffffff;
-        border-radius: 12px;
+        background-color: #F8FAFC;
+        border-radius: 8px;
         padding: 16px;
-        border: 1px solid #dfeafc;
         border-left: 4px solid #3B82F6;
-        box-shadow: 0 3px 10px rgba(59,130,246,0.08);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
-
     .badge-low {
         background-color: #DCFCE7;
         color: #166534;
@@ -100,7 +63,6 @@ st.markdown("""
         font-size: 1.1rem;
         display: inline-block;
     }
-
     .badge-med {
         background-color: #FEF3C7;
         color: #92400E;
@@ -110,7 +72,6 @@ st.markdown("""
         font-size: 1.1rem;
         display: inline-block;
     }
-
     .badge-high {
         background-color: #FEE2E2;
         color: #991B1B;
@@ -120,66 +81,46 @@ st.markdown("""
         font-size: 1.1rem;
         display: inline-block;
     }
-
     .stTabs [role="tablist"] {
-        background: rgba(255,255,255,0.75);
-        border: 1px solid #dfeafc;
+        background: #F8FAFC;
+        border: 1px solid #E2E8F0;
         border-radius: 12px;
         padding: 0.35rem 0.45rem;
         gap: 0.45rem;
-        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
     }
-
     .stTabs [role="tab"] {
         color: #475569;
         border-radius: 10px;
-        padding: 0.72rem 1rem;
+        padding: 0.7rem 1rem;
         font-weight: 600;
         transition: all 0.2s ease;
     }
-
     .stTabs [role="tab"][aria-selected="true"] {
-        background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
-        color: #0f172a;
-        border: 1px solid #93c5fd;
-        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.12);
+        background: linear-gradient(135deg, #DBEAFE 0%, #EFF6FF 100%);
+        color: #0F172A;
+        border: 1px solid #93C5FD;
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
     }
-
     .stTabs [role="tab"]:hover {
-        background: #f1f5f9;
-        color: #0f172a;
+        background: #F1F5F9;
+        color: #0F172A;
     }
-
     div[data-testid="stButton"] > button {
         border-radius: 10px;
-        border: 1px solid rgba(148, 163, 184, 0.5);
+        border: 1px solid rgba(148, 163, 184, 0.45);
         background: #ffffff;
         color: #0f172a;
         font-weight: 600;
         transition: all 0.2s ease;
     }
-
     div[data-testid="stButton"] > button:hover {
         border-color: #93c5fd;
         box-shadow: 0 4px 12px rgba(59, 130, 246, 0.12);
     }
-
     div[data-testid="stButton"] > button[kind="primary"] {
         background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
         border-color: #1D4ED8;
         color: #ffffff;
-    }
-
-    .stDataFrame {
-        background: rgba(255,255,255,0.8);
-        border: 1px solid #e2e8f0;
-        border-radius: 10px;
-    }
-
-    .stAlert, .stInfo {
-        border-radius: 10px;
-        border: 1px solid #dbeafe;
-        background: #f8fbff;
     }
 </style>
 """, unsafe_allow_html=True)
