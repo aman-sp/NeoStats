@@ -30,6 +30,9 @@ database/*.sqlite3
 
 database/__pycache__/
 
+# Local artifacts and workspace folders
+Downloads/
+
 # IDE & OS
 .vscode/
 .idea/
